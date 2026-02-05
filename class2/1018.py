@@ -1,22 +1,28 @@
 h, w = map(int, input().split())
 data = []
+result = []
 
 for i in range(h):
     data.append(list(input()))
 
-# h-8, w-8까지 갯수 세어야함(이중포문)
+for x in range(h - 7):
+    for y in range(w - 7): 
+        countW = 0
+        countB = 0
 
+        for i in range(x, x + 8):
+            for j in range(y, y + 8):
+                if (i + j) % 2 == 0:
+                    if data[i][j] != 'W':
+                        countW += 1
+                    if data[i][j] != 'B':
+                        countB += 1
+                else:
+                    if data[i][j] != 'B':
+                        countW += 1
+                    if data[i][j] != 'W':
+                        countB += 1
 
-for i in range(h):
-    if data[0][0] == 'B':
-        for j in range(w):
-            if i % 0 == 2:
-                
+        result.append(min(countW, countB))
 
-
-
-    else: 
-
-# for h, for w 이중 포문
-# if data[0][0] == b면
-    # 
+print(min(result))
