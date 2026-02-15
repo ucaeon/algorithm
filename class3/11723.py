@@ -1,15 +1,16 @@
 import sys
 
+input = sys.stdin.readline
 n = int(input())
 s = set()
 
 for i in range(n):
-    data = list(map(str, input().split()))
+    data = input().split()
 
     if len(data) == 1:
         a = data[0]
         if a == 'all':
-            s = set([i for i in range(1, 21)])
+            s = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
         elif a == 'empty':
             s.clear()
 
