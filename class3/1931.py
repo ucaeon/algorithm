@@ -13,7 +13,6 @@ end = 0
 
 for i in data:
     if end <= i[0]:
-        print(i)
         count += 1
         end = i[1]
     else:
