@@ -1,22 +1,15 @@
-from collections import deque
-
 n = int(input())
-data = deque()
-total = 0
+schedule = [tuple(map(int, input().split())) for _ in range(n)]
 
-for i in range(n):
-    a, b = map(int, input().split())
-    data.append((a, b))
+dp = [0] * (n + 1)
 
-while data:
-    print(data)
-    a, b = data.popleft()
+for day in range(n - 1, -1, -1):
+    time, pay = schedule[day]
 
-    if (len(data) + 1) - a < 0:
-        break
+    if day + time <= n:
+        dp[day] = max(dp[day + 1], pay + dp[day + time])
     else:
-        total += b
-        for i in range(a - 1):
-            data.popleft()
-        
+        dp[day] = dp[day + 1]
+
+print(dp[0])
     
