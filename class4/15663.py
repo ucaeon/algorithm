@@ -20,8 +20,9 @@ def backtrack():
             continue
 
         path.append(data[i])
-        visited[i] = True
         prev = data[i]
+        visited[i] = True
+
 
         backtrack()
 
